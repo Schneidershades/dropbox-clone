@@ -48,11 +48,13 @@
                     @if($creatingNewFolder)
                         <tr class="border-gray-100 border-b-2 hover:bg-gray-100">
                             <td class="p-3">
-                                <form class="flex items-center">
+                                <form class="flex items-center"
+                                    wire:submit.prevent="createFolder">
                                     <input 
                                         type="text" 
                                         name=""
                                         class="w-full px-3 h-10 border-2 border-gray-200 rounded-lg mr-3"
+                                        wire:model="newFolderState.name"
                                         >
                                     <button class="bg-blue-600 text-white px-6 h-10 rounded-lg mr-2">
                                         Create
@@ -63,7 +65,7 @@
                                 </form>
                             </td>
                             <td>
-                                form
+                                
                             </td>
                             <td>
                                 form
