@@ -49,13 +49,13 @@
 	                            </svg>
                             @endif
 
-                            @if($child->objectable_type == 'file')
+                            @if($child->objectable_type == 'folder')
                             <a href="{{route('files', ['uuid' => $child->uuid])}}" class="p-2 font-bold flex-grow text-blue-400">
                                 {{$child->objectable->name}}
                             </a>
                             @endif
 
-                            @if($child->objectable_type == 'folder')
+                            @if($child->objectable_type == 'file')
                             <a href="" class="p-2 font-bold flex-grow text-blue-400">
                                 {{$child->objectable->name}}
                             </a>

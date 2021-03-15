@@ -35,4 +35,22 @@ class Obj extends Model
     {
         return $this->hasMany(Obj::class, 'parent_id', 'id');
     }
+
+    public function parent()
+    {
+        return $this->belongsTo(Obj::class, 'parent_id', 'id');
+    }
+
+    public function ancestors()
+    {
+        $ancestor = $this;
+
+        $ancestors = collect();
+
+        while ($ancestor->parent){
+            $ancestors->push($ancestors);
+        }
+
+        return $ancestors;
+    }
 }
