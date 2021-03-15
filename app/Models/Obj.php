@@ -32,9 +32,4 @@ class Obj extends Model
     {
     	return $this->morphTo();
     }
-
-    public function children()
-    {
-        return $this->hasMany(Obj::class, 'parent_id', 'id');
-    }
 }
