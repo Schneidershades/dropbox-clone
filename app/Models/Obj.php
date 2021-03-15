@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
+
 
 class Obj extends Model
 {
-    use HasFactory;
+    use HasFactory, HasRecursiveRelationships;
 
     protected $fillable = [
     	'parent_id'
@@ -34,23 +36,5 @@ class Obj extends Model
     public function children()
     {
         return $this->hasMany(Obj::class, 'parent_id', 'id');
-    }
-
-    public function parent()
-    {
-        return $this->belongsTo(Obj::class, 'parent_id', 'id');
-    }
-
-    public function ancestors()
-    {
-        $ancestor = $this;
-
-        $ancestors = collect();
-
-        while ($ancestor->parent){
-            $ancestors->push($ancestors);
-        }
-
-        return $ancestors;
     }
 }
