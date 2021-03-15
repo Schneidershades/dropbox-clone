@@ -10,6 +10,8 @@ class FileBrowser extends Component
 
 	public $ancestors;
 
+	public $creatingNewFolder;
+
     public function render()
     {
         return view('livewire.file-browser');
